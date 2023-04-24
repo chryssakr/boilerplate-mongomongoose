@@ -1,22 +1,21 @@
 let mongoose = require('mongoose');
 
-const server = '192.168.68.108'; // REPLACE WITH YOUR DB SERVER
-const database = 'MongoMongoose'; // REPLACE WITH YOUR DB NAME
+const server = '127.0.0.1'; //192.168.68.108
+const database = 'MongoMongoose';
+
+const Schema = mongoose.Schema;
+const personSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  age: Number,
+  favoriteFoods: [String]
+});
 
 
-let personSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    age: Number,
-    favoriteFoods: [String]
-  });
 
-
-
-let Person = mongoose.model('Person', personSchema);
-module.exports = Person;
+const Person = mongoose.model("Person", personSchema);
 
 
 class Database {
