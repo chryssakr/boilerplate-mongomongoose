@@ -18,7 +18,8 @@ module.exports = mongoose.model('Person', personSchema);
 let PersonModel = require('./name');
 let Person = new PersonModel({
     name: "Chryssa",
-    age: 26
+    age: 26,
+    favoriteFoods: ["fries", "salads"];
 });
 
 
