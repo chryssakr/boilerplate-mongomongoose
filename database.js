@@ -14,8 +14,13 @@ const personSchema = new Schema({
 });
 
 
+module.exports = mongoose.model('Person', personSchema);
+let PersonModel = require('./name');
+let Person = new PersonModel({
+    name: "Chryssa",
+    age: 26
+});
 
-const Person = mongoose.model("Person", personSchema);
 
 
 class Database {
