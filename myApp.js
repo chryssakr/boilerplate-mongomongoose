@@ -67,7 +67,7 @@ const findPeopleByName = (personName, done) => {
 };
 
 const findOneByFood = (food, done) => {
-  const query = {favoriteFoods: food};
+  const query = { favoriteFoods: food };
   Person.findOne(query, (err, personFound) => {
     if (err) return console.error(err);
     done(null, personFound);
@@ -86,7 +86,7 @@ const findEditThenSave = (personId, done) => {
   Person.findById(personId, (err, personFound) => {
     if (err) return console.error(err);
     personFound.favoriteFoods.push(foodToAdd);
-    Person.save((err, data) => {
+    personFound.save((err, data) => {
       if (err) return console.error(err);
       done(null, data);
     })
