@@ -53,16 +53,16 @@ var arrayOfPeople = [
 
 const createManyPeople = (arrayOfPeople, done) => {
   Person.create(arrayOfPeople, (err, data) => {
-      if (err) return console.error(err);
-      done(null, data);
-    });
+    if (err) return console.error(err);
+    done(null, data);
+  });
 };
 
 const findPeopleByName = (personName, done) => {
-  const query = {name: personName};
-  Person.find(query, (error, foundPeople) => {
+  const query = { name: personName };
+  Person.find(query, (err, peopleFound) => {
     if (err) return console.error(err);
-    done(null, data);
+    done(null, peopleFound);
   })
 };
 
