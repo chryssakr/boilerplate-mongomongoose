@@ -59,7 +59,11 @@ const createManyPeople = (arrayOfPeople, done) => {
 };
 
 const findPeopleByName = (personName, done) => {
-  done(null /*, data*/);
+  const query = {name: personName};
+  Person.find(query, (error, foundPeople) => {
+    if (err) return console.error(err);
+    done(null, data);
+  })
 };
 
 const findOneByFood = (food, done) => {
